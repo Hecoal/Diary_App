@@ -1,12 +1,17 @@
-﻿namespace DiaryApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DiaryApp.Models
 {
     public class DiaryEntry
     {
+        //[Key]
         public int Id { get; set; }
-        public string Title { get; set; }
-
-        public string Content { get; set; }
-
-        public DateTime Created { get; set; }
+        [Required]
+        //The ? means empty
+        public string? Title { get; set; }
+        [Required]
+        public string? Content { get; set; }
+        [Required]
+        public DateTime Created { get; set; }= DateTime.Now;
     }
 }
