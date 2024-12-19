@@ -1,12 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DiaryApp.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DiaryApp.Data
 {
-    public class ApplicationDbContext: DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            
+
         }
+        public DbSet<DiaryEntry>DiaryEntries{get; set;}
     }
 }
