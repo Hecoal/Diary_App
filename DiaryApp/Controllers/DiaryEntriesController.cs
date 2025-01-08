@@ -16,5 +16,17 @@ namespace DiaryApp.Controllers
             List<DiaryEntry> objDiaryEntryList = _db.DiaryEntries.ToList();
             return View(objDiaryEntryList);
         }
+         public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(DiaryEntry obj)
+        {
+            _db.DiaryEntries.Add(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
